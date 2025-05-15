@@ -1,0 +1,38 @@
+{
+  "Erdem": [
+    {
+      "subject": "we",
+      "predicate": "suggest",
+      "object": "it",
+      "timestamp": "2025-05-15T10:00:00Z"
+    },
+    {
+      "subject": "I",
+      "predicate": "like",
+      "object": "MongoDB",
+      "timestamp": "2025-05-15T10:15:00Z"
+    },
+    {
+      "subject": "It",
+      "predicate": "support",
+      "object": "joins",
+      "timestamp": "2025-05-15T10:15:00Z"
+    }
+  ],
+  "Ayşe": [
+    {
+      "subject": "React",
+      "predicate": "think",
+      "object": "UI",
+      "timestamp": "2025-05-15T10:05:00Z"
+    }
+  ],
+  "Ali": [
+    {
+      "subject": "Redis",
+      "predicate": "cache",
+      "object": "data",
+      "timestamp": "2025-05-15T10:12:00Z"
+    }
+  ]
+}

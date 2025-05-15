@@ -1,0 +1,32 @@
+[
+  {
+    "sender": "Erdem",
+    "text": "Ali suggested we use FastAPI for the backend and keep it async.",
+    "timestamp": "2025-05-15T10:00:00Z"
+  },
+  {
+    "sender": "Ayşe",
+    "text": "I think React is a good choice for building the UI.",
+    "timestamp": "2025-05-15T10:05:00Z"
+  },
+  {
+    "sender": "Mehmet",
+    "text": "How about storing user data in MongoDB instead of PostgreSQL?",
+    "timestamp": "2025-05-15T10:10:00Z"
+  },
+  {
+    "sender": "Ali",
+    "text": "Redis would be great for caching session data.",
+    "timestamp": "2025-05-15T10:12:00Z"
+  },
+  {
+    "sender": "Erdem",
+    "text": "I don’t like MongoDB. It doesn’t support joins well.",
+    "timestamp": "2025-05-15T10:15:00Z"
+  },
+  {
+    "sender": "Ayşe",
+    "text": "But it's flexible and easy to scale.",
+    "timestamp": "2025-05-15T10:18:00Z"
+  }
+]
