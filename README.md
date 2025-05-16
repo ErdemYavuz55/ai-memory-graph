@@ -3,6 +3,15 @@
 AI-powered memory system that extracts structured knowledge from multi-user group chats. Inspired by [getzep.com](https://getzep.com), this project goes beyond 1:1 chatbot memory by supporting group dialogue, visualization, and structured memory export.
 
 ---
+## 📤 Author & Credits
+
+👤 Developed by **Erdem Yavuz Hacisoftaoglu** — as part of internship and portfolio development.
+
+If you're viewing this as a recruiter or reviewer:
+
+> ✔️ NLP & FastAPI proficiency
+> ✔️ Data structuring, graph logic, memory architecture
+> ✔️ End-to-end working system — not a toy demo
 
 ## 📌 Background & Requirement Context
 
@@ -20,6 +29,28 @@ This implementation first began with single-user conversations (just like Zep), 
 The ultimate purpose is to **retrieve and summarize past group knowledge** through structured memory and make that memory easy to search, analyze, or visualize.
 
 ---
+## 📁 Project Structure
+
+```
+ai-memory-graph/
+├── backend/
+│   ├── app/
+│   │   ├── main.py               # FastAPI server entry point
+│   │   ├── routes/chat.py        # API endpoints (/extract, /query, /memory-summary)
+│   │   └── services/
+│   │       ├── nlp_triplet.py    # Extract triplets using SpaCy
+│   │       ├── graph_builder.py  # Create NetworkX graph
+│   │       ├── graph_visualizer.py # Visualize graph using PyVis
+│   │       └── memory_engine.py  # Query, group, and export memory
+│   ├── group_chat_sample.json    # Dummy test data (group chat)
+│   ├── analyze_memory.py         # CLI script: Extract + summarize
+│   ├── export_memory.py          # CLI script: Export JSON memory
+│   └── memory_export.json        # Output memory (grouped by user)
+```
+
+---
+
+
 
 ## 🎯 Project Objective & Solution Overview
 
@@ -49,6 +80,18 @@ To build a structured memory system for group conversations that allows us to:
 * Meeting summaries ("Who proposed what?")
 * AI assistant memory ("Remind me who built the frontend?")
 * Organizational knowledge base from team chat logs
+
+## 🛠 Setup Instructions
+
+```bash
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate   # or venv\Scripts\activate (Windows)
+
+# Install requirements
+pip install -r requirements.txt
+python -m spacy download en_core_web_trf
+
 
 ### 🧪 How to Try the Project End-to-End (Real Data Testing Guide)
 
@@ -123,27 +166,6 @@ python test_graph_output.py
 
 ---
 
-## 📁 Project Structure
-
-```
-ai-memory-graph/
-├── backend/
-│   ├── app/
-│   │   ├── main.py               # FastAPI server entry point
-│   │   ├── routes/chat.py        # API endpoints (/extract, /query, /memory-summary)
-│   │   └── services/
-│   │       ├── nlp_triplet.py    # Extract triplets using SpaCy
-│   │       ├── graph_builder.py  # Create NetworkX graph
-│   │       ├── graph_visualizer.py # Visualize graph using PyVis
-│   │       └── memory_engine.py  # Query, group, and export memory
-│   ├── group_chat_sample.json    # Dummy test data (group chat)
-│   ├── analyze_memory.py         # CLI script: Extract + summarize
-│   ├── export_memory.py          # CLI script: Export JSON memory
-│   └── memory_export.json        # Output memory (grouped by user)
-```
-
----
-
 ## 🧪 Example Use Case
 
 ### Input Messages
@@ -182,42 +204,7 @@ ai-memory-graph/
 
 ---
 
-## 🛠 Setup Instructions
 
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate   # or venv\Scripts\activate (Windows)
-
-# Install requirements
-pip install -r requirements.txt
-python -m spacy download en_core_web_trf
-
-# Run server
-python -m uvicorn app.main:app --reload
-```
-
-Then open: [http://localhost:8000/docs](http://localhost:8000/docs) to test APIs.
-
----
-
-## 📌 Motivation
-
-This project is inspired by Zep’s memory system, but extends it to group conversations. Instead of only tracking a chatbot’s interaction with one user, this system works for meetings, group chats, or collaborative logs.
-
----
-
-## 📤 Author & Credits
-
-👤 Developed by **Erdem Yavuz Hacisoftaoglu** — as part of internship and portfolio development.
-
-If you're viewing this as a recruiter or reviewer:
-
-> ✔️ NLP & FastAPI proficiency
-> ✔️ Data structuring, graph logic, memory architecture
-> ✔️ End-to-end working system — not a toy demo
-
----
 
 ## 📌 Roadmap (Next Steps)
 
