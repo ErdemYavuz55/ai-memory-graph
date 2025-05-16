@@ -3,6 +3,11 @@
 AI-powered memory system that extracts structured knowledge from multi-user group chats. Inspired by [getzep.com](https://getzep.com), this project goes beyond 1:1 chatbot memory by supporting group dialogue, visualization, and structured memory export.
 
 ---
+## 🔧 Tech Stack
+
+* **Backend**: Python, FastAPI, SpaCy, NetworkX, PyVis
+* **NLP Model**: `en_core_web_trf` (Transformer-based for accurate triplet extraction)
+
 ## 📤 Author & Credits
 
 👤 Developed by **Erdem Yavuz Hacisoftaoglu** — as part of internship and portfolio development.
@@ -49,7 +54,6 @@ ai-memory-graph/
 ```
 
 ---
-
 
 
 ## 🎯 Project Objective & Solution Overview
@@ -154,57 +158,9 @@ python test_graph_output.py
 
 ---
 
-## 🚀 Features
 
-* ✅ **Triplet Extraction**: Extracts subject–predicate–object keypoints from user messages using SpaCy's transformer model
-* ✅ **Author Attribution**: Every triplet is linked to its author and timestamp
-* ✅ **Group Chat Support**: Handles multiple speakers in conversations (not limited to AI+user)
-* ✅ **Knowledge Graph Generation**: Builds a visual graph using NetworkX and PyVis
-* ✅ **Memory Summary**: Calculates top predicates, subjects, and user-based triplet counts
-* ✅ **Memory Query API**: Search triplets by `author`, `predicate`, or `subject`
-* ✅ **JSON Memory Export**: Stores memory in a structured format per user
 
 ---
-
-## 🧪 Example Use Case
-
-### Input Messages
-
-```json
-[
-  {"sender": "Erdem", "text": "Ali suggested using FastAPI for the backend.", "timestamp": "2025-05-15T10:00:00Z"},
-  {"sender": "Ayse", "text": "We should build the UI with React.", "timestamp": "2025-05-15T10:05:00Z"}
-]
-```
-
-### Triplet Output (via `/api/chat/extract`)
-
-```json
-[
-  {"subject": "Ali", "predicate": "suggest", "object": "FastAPI", "author": "Erdem", "timestamp": "..."},
-  {"subject": "We", "predicate": "build", "object": "React", "author": "Ayse", "timestamp": "..."}
-]
-```
-
-### Memory Export
-
-```json
-{
-  "Erdem": [ {"subject": "Ali", "predicate": "suggest", "object": "FastAPI", ...} ],
-  "Ayse": [ {"subject": "We", "predicate": "build", "object": "React", ...} ]
-}
-```
-
----
-
-## 🔧 Tech Stack
-
-* **Backend**: Python, FastAPI, SpaCy, NetworkX, PyVis
-* **NLP Model**: `en_core_web_trf` (Transformer-based for accurate triplet extraction)
-
----
-
-
 
 ## 📌 Roadmap (Next Steps)
 
