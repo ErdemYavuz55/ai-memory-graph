@@ -1,0 +1,35 @@
+{
+  "Erdem": [
+    {
+      "subject": "we",
+      "predicate": "suggest",
+      "object": "it",
+      "timestamp": "2025-05-15T10:00:00Z",
+      "id": "a94bb357-9042-4228-af36-ea4bae2fcc6d"
+    },
+    {
+      "subject": "I",
+      "predicate": "recommend",
+      "object": "PostreSQL",
+      "timestamp": "2025-05-15T10:15:00Z",
+      "id": "ca5a1eb6-b95a-4a79-9d8b-911ba9b42090"
+    },
+    {
+      "subject": "It",
+      "predicate": "support",
+      "object": "joins",
+      "timestamp": "2025-05-15T10:15:00Z",
+      "id": "6cb0cfce-c682-4cb0-89d6-dacee32dbf32"
+    }
+  ],
+  "Ayşe": [],
+  "Ali": [
+    {
+      "subject": "Redis",
+      "predicate": "cache",
+      "object": "data",
+      "timestamp": "2025-05-15T10:12:00Z",
+      "id": "5f412ef6-b6eb-41a2-beeb-9088261608f7"
+    }
+  ]
+}
