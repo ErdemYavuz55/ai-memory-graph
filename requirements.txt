@@ -1,85 +1,36 @@
-﻿annotated-types==0.7.0
-anyio==4.9.0
-asttokens==3.0.0
-blis==1.3.0
-catalogue==2.0.10
-certifi==2025.4.26
-charset-normalizer==3.4.2
-click==8.1.8
-cloudpathlib==0.21.1
-colorama==0.4.6
-confection==0.1.5
-curated-tokenizers==0.0.9
-curated-transformers==0.1.1
-cymem==2.0.11
-decorator==5.2.1
-en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
-en_core_web_trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl#sha256=272a31e9d8530d1e075351d30a462d7e80e31da23574f1b274e200f3fff35bf5
-executing==2.2.0
+# --- Web Framework ---
 fastapi==0.115.12
-filelock==3.18.0
-fsspec==2025.3.2
-h11==0.16.0
-huggingface-hub==0.31.2
-idna==3.10
-ipython==9.2.0
-ipython_pygments_lexers==1.1.1
-jedi==0.19.2
-Jinja2==3.1.6
-jsonpickle==4.0.5
-langcodes==3.5.0
-language_data==1.3.0
-marisa-trie==1.2.1
-markdown-it-py==3.0.0
-MarkupSafe==3.0.2
-matplotlib-inline==0.1.7
-mdurl==0.1.2
-mpmath==1.3.0
-murmurhash==1.0.12
-networkx==3.4.2
-numpy==2.2.5
-packaging==25.0
-parso==0.8.4
-preshed==3.0.9
-prompt_toolkit==3.0.51
-pure_eval==0.2.3
-pydantic==2.11.4
-pydantic_core==2.33.2
-Pygments==2.19.1
+uvicorn==0.34.2
+starlette==0.46.2
 python-dotenv==1.1.0
-pyvis==0.3.2
-PyYAML==6.0.2
-regex==2024.11.6
-requests==2.32.3
-rich==14.0.0
-safetensors==0.5.3
-shellingham==1.5.4
-smart-open==7.1.0
-sniffio==1.3.1
+pydantic==2.11.4
+
+# --- NLP & ML ---
 spacy>=3.7,<3.9
-spacy-alignments==0.9.1
+spacy-transformers>=1.3.1,<1.4
 spacy-curated-transformers==0.3.0
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
-spacy-transformers>=1.3.1,<1.4
-srsly==2.5.1
-stack-data==0.6.3
-starlette==0.46.2
-sympy==1.14.0
 thinc==8.3.6
-tokenizers==0.21.1
 torch==2.7.0
-tqdm==4.67.1
-traitlets==5.14.3
 transformers==4.49.0
-typer==0.15.4
-typing-inspection==0.4.0
-typing_extensions==4.13.2
-urllib3==2.4.0
-uvicorn==0.34.2
-wasabi==1.1.3
-wcwidth==0.2.13
-weasel==0.4.1
+tokenizers==0.21.1
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+tqdm==4.67.1
+safetensors==0.5.3
 
-wrapt==1.17.2
+# --- Graphs & Visualization ---
+networkx==3.4.2
+pyvis==0.3.2
 
+# --- Utils ---
+requests==2.32.3
+python-multipart>=0.0.9
+huggingface-hub==0.31.2
+
+# --- SpaCy Models (indirilecek) ---
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+# İsteğe bağlı, ağır model (Render free’de zor olabilir):
+# en_core_web_trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl
