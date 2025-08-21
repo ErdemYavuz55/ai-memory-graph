@@ -1,8 +1,24 @@
-# backend/app/main.py
 from fastapi import FastAPI
-from app.routes import chat
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="AI Memory Graph API")
+app = FastAPI()
 
-# Route register
-app.include_router(chat.router, prefix="/api/chat")
+# CORS (UI veya farklı origin’den çağrı için)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # ilk aşamada geniş bırak
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ✅ Root path: 200 OK döndürsün (Render health probe vs. için)
+@app.get("/")
+def root():
+    return {"status": "ok", "service": "ai-memory-graph"}
+
+# Health endpoint (kontrol için)
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
+
