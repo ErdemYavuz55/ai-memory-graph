@@ -3,26 +3,14 @@ import requests
 import datetime
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_lottie import st_lottie
-import json
 
-# ========================
-# Backend API URL
-# ========================
-BACKEND_URL = "https://ai-memory-graph.onrender.com"
+BACKEND_URL = st.secrets.get("BACKEND_URL", "https://ai-memory-graph.onrender.com")
 
-# ========================
-# Page Config
-# ========================
 st.set_page_config(page_title="AI Memory Graph", layout="wide", page_icon="🧠")
 
-# ========================
-# Header with Animation
-# ========================
 def load_lottieurl(url: str):
-    import requests
     r = requests.get(url)
-    if r.status_code != 200:
-        return None
+    if r.status_code != 200: return None
     return r.json()
 
 lottie_ai = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_touohxv0.json")
@@ -36,62 +24,42 @@ with col2:
 
 add_vertical_space(2)
 
-# ========================
-# Chat Input
-# ========================
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
 
-with st.container():
-    st.subheader("💬 Add Chat Messages")
-    sender = st.text_input("Sender")
-    text = st.text_area("Message")
-    if st.button("➕ Add Message"):
-        if sender and text:
-            st.session_state["messages"].append({
-                "sender": sender,
-                "text": text,
-                "timestamp": datetime.datetime.utcnow().isoformat()
-            })
-            st.success("Message added!")
+st.subheader("💬 Add Chat Messages")
+sender = st.text_input("Sender")
+text = st.text_area("Message")
+if st.button("➕ Add Message"):
+    if sender and text:
+        st.session_state["messages"].append({
+            "sender": sender,
+            "text": text,
+            "timestamp": datetime.datetime.utcnow().isoformat()
+        })
+        st.success("Message added!")
 
-# ========================
-# Show Current Messages
-# ========================
 if st.session_state["messages"]:
     st.write("### 📑 Current Messages")
     st.json(st.session_state["messages"])
 
     add_vertical_space(1)
+    c1, c2, c3 = st.columns(3)
 
-    col1, col2, col3 = st.columns(3)
-
-    # Extract Triplets
-    with col1:
+    with c1:
         if st.button("🔍 Extract Triplets"):
-            resp = requests.post(f"{BACKEND_URL}/extract", json=st.session_state["messages"])
-            if resp.status_code == 200:
-                st.success("Triplets extracted!")
-                st.json(resp.json())
-            else:
-                st.error(f"Error {resp.status_code}")
+            r = requests.post(f"{BACKEND_URL}/extract", json=st.session_state["messages"])
+            st.json(r.json() if r.ok else {"error": r.status_code})
 
-    # Memory Summary
-    with col2:
+    with c2:
         if st.button("📝 Memory Summary"):
-            resp = requests.post(f"{BACKEND_URL}/memory-summary", json=st.session_state["messages"])
-            if resp.status_code == 200:
-                st.info("Summary:")
-                st.json(resp.json())
-            else:
-                st.error(f"Error {resp.status_code}")
+            r = requests.post(f"{BACKEND_URL}/memory-summary", json=st.session_state["messages"])
+            st.json(r.json() if r.ok else {"error": r.status_code})
 
-    # Graph
-    with col3:
+    with c3:
         if st.button("🌐 Show Graph"):
-            resp = requests.post(f"{BACKEND_URL}/graph-html", json=st.session_state["messages"])
-            if resp.status_code == 200:
-                st.components.v1.html(resp.text, height=600, scrolling=True)
+            r = requests.post(f"{BACKEND_URL}/graph-html", json=st.session_state["messages"])
+            if r.ok:
+                st.components.v1.html(r.text, height=600, scrolling=True)
             else:
-                st.error(f"Error {resp.status_code}")
-
+                st.error(f"Error {r.status_code}")
