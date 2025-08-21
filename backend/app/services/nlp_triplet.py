@@ -2,9 +2,14 @@
 
 import spacy
 from typing import List, Dict
+import os
 
-# Artık gelişmiş modeli kullanıyoruz
-nlp = spacy.load("en_core_web_trf")
+MODEL_NAME = os.getenv("SPACY_MODEL", "en_core_web_trf")
+try:
+    nlp = spacy.load(MODEL_NAME)
+except Exception:
+    # Transformer yoksa hafif modele düş
+    nlp = spacy.load("en_core_web_sm")
 
 def extract_triplets_from_text(text: str) -> List[Dict]:
     doc = nlp(text)
