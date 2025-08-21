@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes import memory_routes
 
 app = FastAPI()
 
@@ -22,3 +23,5 @@ def root():
 def healthz():
     return {"status": "ok"}
 
+# burada routerı app’e ekliyoruz
+app.include_router(memory_routes.router, prefix="/memory", tags=["Memory"])
