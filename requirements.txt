@@ -1,3 +1,11 @@
+
+streamlit
+requests
+streamlit-extras
+streamlit-lottie
+
+
+
 # --- Web Framework ---
 fastapi==0.115.12
 uvicorn==0.34.2
@@ -34,3 +42,4 @@ huggingface-hub==0.31.2
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 # İsteğe bağlı, ağır model (Render free’de zor olabilir):
 # en_core_web_trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl
+
