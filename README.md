@@ -11,6 +11,10 @@ AI-powered memory system that extracts structured knowledge from multi-user grou
 
 ---
 
+## 🚀 Live Demo
+You can try the model directly in your browser without installing anything: 
+**[👉 Click here to open the Web App](https://huggingface.co/spaces/erdemyavuz/ai_memory_graph)**
+
 ## ✨ New Features
 
 The project was extended with several new capabilities:
